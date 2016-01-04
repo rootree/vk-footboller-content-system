@@ -1,0 +1,18 @@
+AddType "text/xml;  charset=utf-8"    xml
+ 
+# For security reasons, Option followsymlinks cannot be overridden.
+#Options +FollowSymLinks
+Options +SymLinksIfOwnerMatch
+
+# Turn on URL rewriting
+RewriteEngine On
+
+# Installation directory
+RewriteBase /
+
+
+RewriteRule ^(index.php|favicon.ico|IMG|CSS|JS|STORE|ZS) - [PT,L]
+ 
+# Rewrite all other URLs to index.php/URL
+RewriteRule ^(.*)$ index.php/$1 [PT,L]
+
